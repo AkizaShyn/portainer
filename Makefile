@@ -11,7 +11,7 @@ SECRET_FOLDER=secret/
 # Remote Folders
 INSTALL_FOLDER=/secret/$(SERVICE_NAME)/
 
-DOCKER_FILE=-f $(DOCKER_FOLDER)docker-compose.yml -f $(INSTALL_FOLDER)compose-secret.yml
+DOCKER_FILE=-f $(DOCKER_FOLDER)docker-compose.yml 
 DOCKER_COMMAND= $(ENV) docker compose -p $(SERVICE_NAME_LOWER) $(DOCKER_FILE)
 
 install:
@@ -19,4 +19,4 @@ install:
 	@cp -R $(SECRET_FOLDER)/* $(INSTALL_FOLDER)
 
 start:
-	$(DOCKER_COMMAND) --env-file docker/local.env up -d --pull always
+	$(DOCKER_COMMAND)  up -d --pull always
